@@ -1,0 +1,86 @@
+{
+    "default": {
+        "background": {
+            "backgroundColor": "#3c1053",
+            "backgroundImage": "radial-gradient(circle 40rem at 90% 10%, #ad5389, transparent), radial-gradient(circle 40rem at 0% 0%, #ad5389, transparent), radial-gradient(circle 40rem at 30% 50%, #6a0dad, transparent), radial-gradient(circle 40rem at 80% 100%, #a89ba5, transparent)",
+            "backgroundAttachment": "fixed",
+            "backgroundSize": "100%"
+        },
+        "loader": {
+            "background": "linear-gradient(270deg, #ad5389, #6a0dad, #a89ba5)",
+            "backgroundSize": "800% 800%",
+            "cursor": "not-allowed",
+            "animation": "rgbShift 10s ease infinite"
+        }
+    },
+    "coolsky": {
+        "background": {
+            "backgroundColor": "#000046",
+            "backgroundImage": "radial-gradient(circle 40rem at 40% 0%, rgba(140, 0, 255, 0.6), transparent), radial-gradient(circle 40rem at 80% 100%, rgba(0, 213, 255, 0.7), transparent), radial-gradient(circle 40rem at 20% 100%, rgba(255, 170, 184, 0.7) , transparent)",
+            "backgroundAttachment": "fixed",
+            "backgroundSize": "100%"
+        },
+        "loader": {
+            "background": "linear-gradient(270deg, #8c00ff99, #00d5ffb3, #ffaab8b3)",
+            "backgroundSize": "800% 800%",
+            "cursor": "not-allowed",
+            "animation": "rgbShift 10s ease infinite"
+        }
+    },
+    "meridian": {
+        "background": {
+            "backgroundColor": "#45a247",
+            "backgroundImage": "radial-gradient(circle 40rem at 0% 0%, #283c86, transparent), radial-gradient(circle 40rem at 0% 100%, #a7cb27, transparent), radial-gradient(circle 40rem at 100% 0%, #c0bd13, transparent), radial-gradient(circle 40rem at 100% 100%, #283c86, transparent)",
+            "backgroundAttachment": "fixed",
+            "backgroundSize": "100%"
+        },
+        "loader": {
+            "background": "linear-gradient(270deg, #283c86, #a7cb27, #c0bd13, #283c86)",
+            "backgroundSize": "800% 800%",
+            "cursor": "not-allowed",
+            "animation": "rgbShift 10s ease infinite"
+        }
+    },
+    "harvey": {
+        "background": {
+            "backgroundColor": "#1f4037",
+            "backgroundImage": "radial-gradient(circle 40rem at 30% 0%, #72bb99, transparent), radial-gradient(circle 40rem at 0% 100%, #41af3f, transparent), radial-gradient(circle 40rem at 100% 0%, #13cd76, transparent), radial-gradient(circle 40rem at 80% 100%, #42ace5, transparent)",
+            "backgroundAttachment": "fixed",
+            "backgroundSize": "100%"
+        },
+        "loader": {
+            "background": "linear-gradient(270deg, #72bb99, #41af3f, #13cd76, #42ace5)",
+            "backgroundSize": "800% 800%",
+            "cursor": "not-allowed",
+            "animation": "rgbShift 10s ease infinite"
+        }
+    },
+    "royal": {
+        "background": {
+            "backgroundColor": "#141E30",
+            "backgroundImage": "radial-gradient(circle 40rem at 0% 0%, #335883, transparent), radial-gradient(circle 40rem at 50% 100%, #355579, transparent), radial-gradient(circle 40rem at 100% 0%, #395d86, transparent), radial-gradient(circle 40rem at 100% 100%, #243B55, transparent)",
+            "backgroundAttachment": "fixed",
+            "backgroundSize": "100%"
+        },
+        "loader": {
+            "background": "linear-gradient(270deg, #335883, #355579, #395d86, #243B55)",
+            "backgroundSize": "800% 800%",
+            "cursor": "not-allowed",
+            "animation": "rgbShift 10s ease infinite"
+        }
+    },
+    "deepspace": {
+        "background": {
+            "backgroundColor": "#000000",
+            "backgroundImage": "radial-gradient(circle 40rem at 30% 0%, #4c4c4c, transparent), radial-gradient(circle 40rem at 50% 100%, #545454, transparent), radial-gradient(circle 40rem at 100% 0%, #434343, transparent), radial-gradient(circle 40rem at 100% 100%, #707070, transparent)",
+            "backgroundAttachment": "fixed",
+            "backgroundSize": "100%"
+        },
+        "loader": {
+            "background": "linear-gradient(270deg, #4c4c4c, #545454, #434343, #707070)",
+            "backgroundSize": "800% 800%",
+            "cursor": "not-allowed",
+            "animation": "rgbShift 10s ease infinite"
+        }
+    }
+}

@@ -1,0 +1,313 @@
+/* =========================================================================
+   DPUCARE — AuthNew.css
+   สไตล์ชีตของหน้าเข้าสู่ระบบ / สมัครสมาชิก / ลืมรหัสผ่าน
+   ใช้คู่กับ components/user/Authentication.jsx ฉบับปรับ UX/UI
+   คลาสขึ้นต้นด้วย dpu- จึงไม่ชนกับ App.css เดิม
+   ========================================================================= */
+
+:root {
+  --dpu-panel: rgba(16, 5, 26, 0.82);
+  --dpu-panel-solid: rgba(16, 5, 26, 0.94);
+  --dpu-line: rgba(255, 255, 255, 0.10);
+  --dpu-line-strong: rgba(255, 255, 255, 0.20);
+  --dpu-fill: rgba(255, 255, 255, 0.08);
+  --dpu-fill-hover: rgba(255, 255, 255, 0.14);
+  --dpu-ink: #ffffff;
+  --dpu-ink-soft: #d6c8e0;
+  --dpu-ink-dim: #bfaecd;
+  --dpu-accent: #8e3a70;
+  --dpu-accent-hover: #a2467f;
+  --dpu-accent-soft: #f2b8da;
+  --dpu-r-sm: 10px;
+  --dpu-r-md: 12px;
+  --dpu-r-lg: 16px;
+  --dpu-r-xl: 20px;
+  --dpu-tap: 44px;
+}
+
+.dpu-auth {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
+  color: var(--dpu-ink);
+  font-size: 16px;
+}
+
+.dpu-auth-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.dpu-auth-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 6, 32, 0.35), rgba(20, 6, 32, 0.88));
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.dpu-auth-lang {
+  position: absolute;
+  top: calc(16px + env(safe-area-inset-top));
+  right: 16px;
+  z-index: 3;
+  min-width: 56px;
+  min-height: var(--dpu-tap);
+  padding: 0 14px;
+  border: 1px solid var(--dpu-line-strong);
+  border-radius: var(--dpu-r-md);
+  background: rgba(16, 5, 26, 0.7);
+  color: var(--dpu-ink);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.dpu-auth-lang:hover { background: rgba(16, 5, 26, 0.9); }
+
+.dpu-auth-stage {
+  position: relative;
+  z-index: 2;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px calc(32px + env(safe-area-inset-bottom));
+}
+
+.dpu-auth-card {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px;
+  background: rgba(16, 5, 26, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--dpu-r-xl);
+}
+
+@media (max-width: 480px) {
+  .dpu-auth-card { padding: 22px 18px; gap: 16px; }
+}
+
+/* ---------------------------------- head ---------------------------------- */
+
+.dpu-auth-brand { display: flex; align-items: center; gap: 10px; }
+.dpu-auth-brand strong { font-size: 17px; font-weight: 600; letter-spacing: 1px; }
+
+.dpu-logo {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: var(--dpu-r-sm);
+  overflow: hidden;
+  background: #1b0a26;
+  display: inline-flex;
+}
+.dpu-logo img { width: 100%; height: 100%; object-fit: cover; }
+
+.dpu-auth-head { display: flex; align-items: center; gap: 8px; }
+.dpu-auth-head h1 { margin: 0; font-size: 19px; font-weight: 600; }
+.dpu-auth-sub { margin: -8px 0 0; font-size: 14px; line-height: 1.6; color: var(--dpu-ink-dim); text-wrap: pretty; }
+
+.dpu-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--dpu-tap);
+  height: var(--dpu-tap);
+  flex: none;
+  margin-left: -10px;
+  border: none;
+  border-radius: var(--dpu-r-md);
+  background: none;
+  color: var(--dpu-ink-dim);
+  font-size: 16px;
+  cursor: pointer;
+}
+.dpu-iconbtn:hover { background: var(--dpu-fill); color: var(--dpu-ink); }
+
+/* ---------------------------------- tabs ---------------------------------- */
+
+.dpu-segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: var(--dpu-r-md);
+}
+
+.dpu-segmented button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--dpu-tap);
+  border: none;
+  border-radius: 9px;
+  background: none;
+  color: var(--dpu-ink);
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.dpu-segmented button:hover { background: var(--dpu-fill); }
+.dpu-segmented button.is-on { background: #fff; color: #2b0c3c; font-weight: 600; }
+
+/* ---------------------------------- form ---------------------------------- */
+
+.dpu-auth-form { display: flex; flex-direction: column; gap: 14px; }
+
+.dpu-field { display: flex; flex-direction: column; gap: 6px; }
+.dpu-field-label { font-size: 14px; color: var(--dpu-ink-soft); }
+
+.dpu-field-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 0 8px 0 14px;
+  background: var(--dpu-fill);
+  border: 1px solid var(--dpu-line-strong);
+  border-radius: var(--dpu-r-md);
+}
+
+.dpu-field-box:focus-within { border-color: rgba(255, 255, 255, 0.42); }
+.dpu-field-ico { flex: none; font-size: 14px; color: var(--dpu-ink-dim); }
+
+.dpu-field-box input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--dpu-ink);
+  font-family: inherit;
+  font-size: 16px;
+}
+
+.dpu-field-box input::placeholder { color: var(--dpu-ink-dim); }
+.dpu-field-box input:disabled { opacity: .6; }
+.dpu-field-hint { font-size: 13px; line-height: 1.55; color: var(--dpu-ink-dim); text-wrap: pretty; }
+
+.dpu-eye {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border: none;
+  border-radius: var(--dpu-r-sm);
+  background: none;
+  color: var(--dpu-ink-dim);
+  font-size: 14px;
+  cursor: pointer;
+}
+.dpu-eye:hover { background: var(--dpu-fill-hover); color: var(--dpu-ink); }
+
+.dpu-inline-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--dpu-line-strong);
+  border-radius: var(--dpu-r-sm);
+  background: none;
+  color: var(--dpu-ink);
+  font-family: inherit;
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.dpu-inline-btn:hover:not(:disabled) { background: var(--dpu-fill-hover); }
+.dpu-inline-btn:disabled { opacity: .55; cursor: not-allowed; }
+.dpu-count { font-variant-numeric: tabular-nums; min-width: 18px; text-align: center; }
+
+.dpu-auth-row { display: flex; justify-content: flex-end; }
+
+.dpu-link {
+  border: none;
+  background: none;
+  padding: 6px 2px;
+  color: var(--dpu-accent-soft);
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.dpu-link:hover { color: #fff; }
+
+/* --------------------------------- buttons -------------------------------- */
+
+.dpu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: var(--dpu-tap);
+  padding: 0 16px;
+  border: none;
+  border-radius: var(--dpu-r-md);
+  background: none;
+  color: var(--dpu-ink);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .15s ease, opacity .15s ease;
+}
+
+.dpu-btn:disabled { opacity: .55; cursor: not-allowed; }
+.dpu-btn-primary { background: var(--dpu-accent); font-weight: 600; }
+.dpu-btn-primary:hover:not(:disabled) { background: var(--dpu-accent-hover); }
+.dpu-btn-ghost { border: 1px solid var(--dpu-line-strong); }
+.dpu-btn-ghost:hover:not(:disabled) { background: var(--dpu-fill); }
+
+.dpu-auth-submit { width: 100%; min-height: 50px; margin-top: 4px; }
+.dpu-auth-google { width: 100%; min-height: 48px; font-size: 15px; }
+
+.dpu-auth-or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--dpu-ink-dim);
+  font-size: 13px;
+}
+
+.dpu-auth-or::before,
+.dpu-auth-or::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.dpu-auth-foot { margin: 0; text-align: center; }
+
+/* ------------------------------- a11y helpers ------------------------------ */
+
+.dpu-auth :focus-visible {
+  outline: 2px solid var(--dpu-accent-soft);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dpu-auth *,
+  .dpu-auth *::before,
+  .dpu-auth *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

@@ -1,0 +1,1763 @@
+/* App.jsx */
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.app .animetion-start {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    z-index: 10;
+    animation: bg 18s ease-in-out;
+}
+
+.app .animetion-start .skip {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .animetion-start .skip:hover {
+    scale: 1.2;
+}
+
+.app .animetion-start h1 {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    animation: fadeIn 5s;
+}
+
+.app .block-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2.4rem);
+    z-index: 0;
+}
+
+.app .content-app {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    color: white;
+    z-index: 1;
+}
+
+.app .content-app .date-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.app .content-app .fa-mini-menu {
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .content-app .fa-mini-menu:hover {
+    scale: 1.2;
+}
+
+.app .content-app .chatbot .menu-mode {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1rem;
+    height: 7%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.app .content-app .chatbot .menu-mode-hidden {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 5%;
+}
+
+.app .content-app .chatbot .menu-mode-hidden h1 {
+    letter-spacing: 1px;
+}
+
+.app .content-app .chatbot .menu-mode select {
+    color: white;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.app .content-app .chatbot .menu-mode select option {
+    cursor: pointer;
+}
+
+.app .content-app .chatbot .menu-mode select option:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.app .content-app .chatbot .menu-mode .mini-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: none;
+}
+
+.app .content-app .chatbot .menu-mode .mini-menu .fa-mini {
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .content-app .chatbot .menu-mode .mini-menu .fa-mini:hover {
+    scale: 1.2;
+}
+
+.app .content-app .chatbot .chat {
+    width: 100%;
+    height: 93%;
+}
+
+.app .content-app .chatbot .chat .show-message {
+    max-height: 85%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.app .content-app .chatbot .chat .show-message .line {
+    width: 90%;
+    height: 0.1rem;
+    background-color: white;
+}
+
+.app .content-app .chatbot .chat .show-message .empty-space {
+    margin-top: 1.6rem;
+}
+
+.app .content-app .chatbot .chat .show-message .ai-message {
+    max-width: 90%;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    margin-left: 1.6rem;
+    overflow: auto;
+}
+
+.app .content-app .chatbot .chat .show-message .ai-message::-webkit-scrollbar {
+    height: 0.2rem;
+}
+
+.app .content-app .chatbot .chat .show-message .ai-message::-webkit-scrollbar-track {
+    background: none;
+}
+
+.app .content-app .chatbot .chat .show-message .ai-message::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 2rem;
+}
+
+.app .content-app .chatbot .chat .show-message .ai-message pre {
+    display: inline-block;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.app .content-app .chatbot .chat .show-message .human-message {
+    text-align: end;
+    padding: 0 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.app .content-app .chatbot .chat .show-message .human-message h1 {
+    text-align: start;
+    display: inline-block;
+    max-width: 90%;
+    padding: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    border: 1px solid white;
+    border-radius: 2rem 0 2rem 2rem;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.app .content-app .chatbot .chat .show-message .human-message-mode-2 {
+    text-align: end;
+    padding: 0 1.6rem;
+}
+
+.app .content-app .chatbot .chat .show-message .human-message-mode-2 h1 {
+    display: inline-block;
+    text-align: start;
+    max-width: 90%;
+    margin-bottom: 1.6rem;
+    padding: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    border: 1px solid white;
+    border-radius: 2rem 0 2rem 2rem;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.app .content-app .chatbot .chat .show-message::-webkit-scrollbar {
+    display: none;
+}
+
+.app .content-app .chatbot .chat .input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+}
+
+.app .content-app .chatbot .chat .input .input-user {
+    width: 100%;
+    padding: 0 1.6rem;
+}
+
+.app .content-app .chatbot .chat .input .input-user form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding-right: 1rem;
+    border: 1px solid white;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.app .content-app .chatbot .chat .input .input-user form input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    color: white;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.app .content-app .chatbot .chat .input .input-user form input::placeholder {
+    color: white;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.app .content-app .chatbot .chat .input .input-user form .fa-input-user {
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .content-app .chatbot .chat .input .input-user form .fa-input-user:hover {
+    scale: 1.2;
+}
+
+.app .content-app .chatbot .setting-mode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.app .content-app .chatbot .setting-mode h1 {
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.app .content-app .chatbot .setting-mode button {
+    padding: 1rem;
+    background: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .content-app .chatbot .chat .input p {
+    text-align: center;
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    margin-top: 0.4rem;
+}
+
+.app .content-app .chatbot .setting-mode .just_venting {
+    cursor: not-allowed;
+}
+
+.app .content-app .chatbot .setting-mode button {
+    margin-bottom: 1rem;
+}
+
+.app .content-app .chatbot .setting-mode button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.app .content-app .chatbot .setting-mode button:first-child {
+    margin-right: 2rem;
+}
+
+.app .content-app .chatbot .setting-mode p {
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.app .content-app .chatbot .warn-mode {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+}
+
+.app .content-app .chatbot .warn-mode .content-warn-mode {
+    width: 60%;
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: black 0 0 2rem;
+}
+
+.app .content-app .chatbot .warn-mode .content-warn-mode h1 {
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.app .content-app .chatbot .warn-mode .content-warn-mode .btn-accept {
+    margin-top: 1.6rem;
+    text-align: end;
+}
+
+.app .content-app .chatbot .warn-mode .content-warn-mode .btn-accept button {
+    background: none;
+    padding: 0.6rem;
+    color: white;
+    border: 1px solid white;
+    border-radius: 2rem;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.app .content-app .chatbot .warn-mode .content-warn-mode .btn-accept button:hover {
+    scale: 1.2;
+}
+
+.app .content-app .chat-history .chat-history-container {
+    width: 100%;
+    height: 100%;
+}
+
+.app .content-app .chat-history .chat-history-container .new-chat {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+
+.app .content-app .chat-history .chat-history-container .new-chat button {
+    background: none;
+    color: white;
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    border: 1px solid white;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .content-app .chat-history .chat-history-container .new-chat button:hover {
+    scale: 1.2;
+}
+
+.app .content-app .chat-history .chat-history-container .historys {
+    height: 90%;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.app .content-app .chat-history .chat-history-container .historys::-webkit-scrollbar {
+    background: none;
+}
+
+.app .content-app .chat-history .chat-history-container .historys::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.app .content-app .chat-history .chat-history-container .historys .history {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .content-app .chat-history .chat-history-container .historys .history:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.app .content-app .chat-history .chat-history-container .historys .history .fa-delete-section {
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .content-app .chat-history .chat-history-container .historys .history .fa-delete-section:hover {
+    scale: 1.2;
+}
+
+.app .content-app .chat-history .chat-history-container .historys .history:hover .fa-delete-section {
+    opacity: 1;
+}
+
+.app .setting-full {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(1rem);
+    z-index: 20;
+}
+
+.app .setting-full .content-setting-full {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left {
+    border-right: 2px solid white;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .fa-icon-setting {
+    margin-right: 1.6rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .fa-icon-setting:hover {
+    scale: 1.2;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .title-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .title-menu .title {
+    display: flex;
+    align-items: center;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left h1 {
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .title-menu .fa-setting-out {
+    cursor: pointer;
+    padding-right: 1.6rem;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .title-menu .fa-setting-out:hover {
+    scale: 1.2;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .theme-setting {
+    display: flex;
+    align-items: center;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .theme-setting:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .language-setting {
+    display: flex;
+    align-items: center;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .language-setting:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .aduio-setting {
+    display: flex;
+    align-items: center;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .aduio-setting:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .empty {
+    align-content: end;
+    height: 60%;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .empty .restore {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    background-color: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .empty .restore:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .empty .backward {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    background-color: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+}
+
+.app .setting-full .content-setting-full .nav-menu-left .empty .backward:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.app .setting-full .content-setting-full .content-menu-right {
+    overflow: hidden;
+}
+
+.app .setting-full .content-setting-full .content-menu-right .theme-setting-right {
+    width: 100%;
+    height: 100%;
+}
+
+.app .setting-full .content-setting-full .content-menu-right .theme-setting-right .themes {
+    justify-items: center;
+    height: 100%;
+    padding: 1.6rem;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.app .setting-full .content-setting-full .content-menu-right .theme-setting-right .themes .block-theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.6rem;
+    border-radius: 2rem;
+    box-shadow: black 0 0 2rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .setting-full .content-setting-full .content-menu-right .theme-setting-right .themes .block-theme:hover {
+    scale: 1.2;
+}
+
+.app .setting-full .content-setting-full .content-menu-right .theme-setting-right .themes .block-theme h1 {
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.app .setting-full .content-setting-full .content-menu-right .language-setting-right {
+    display: none;
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 1.6rem;
+}
+
+.app .setting-full .content-setting-full .content-menu-right .language-setting-right button {
+    margin-bottom: 2rem;
+    background: none;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 2rem;
+    box-shadow: black 0 0 2rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.app .setting-full .content-setting-full .content-menu-right .language-setting-right button:hover {
+    scale: 1.2;
+}
+
+.app .setting-full .content-setting-full .content-menu-right .audio-setting-right {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 1.6rem;
+}
+
+.app .setting-full .content-setting-full .content-menu-right .audio-setting-right input {
+    margin-right: 1rem;
+}
+
+.app .setting-full .content-setting-full .content-menu-right .audio-setting-right .fa-test-music {
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.app .setting-full .content-setting-full .content-menu-right .audio-setting-right .fa-test-music:hover {
+    scale: 1.2;
+}
+
+.app .app-moblie {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.6rem;
+    backdrop-filter: blur(1rem);
+    z-index: 10;
+}
+
+.app .app-moblie .content-app {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    box-shadow: black 0 0 2rem;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.app .app-moblie .content-app h1 {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.app .app-moblie .content-app .block-signin {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 2rem;
+}
+
+.app .app-moblie .content-app .block-signup {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 2rem;
+}
+
+.app .app-moblie .content-app .block-history {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 2rem;
+}
+
+.app .app-moblie .content-app .block-setting {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 2rem;
+}
+
+.app .app-moblie .content-app .block-exit {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 2rem;
+}
+
+.app .app-history {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.6rem;
+    backdrop-filter: blur(1rem);
+    z-index: 12;
+}
+
+.app .app-history .content-history {
+    width: 90%;
+    height: 60%;
+    max-height: 80%;
+    box-shadow: black 0 0 2rem;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.app .app-history .content-history .title-history {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.6rem;
+    color: white;
+    width: 100%;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.app .app-history .content-history .title-history h1 {
+    font-weight: 400;
+}
+
+.app .app-history .content-history .list-history {
+    width: 100%;
+    height: 90%;
+    color: white;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.app .app-history .content-history .list-history .block-history {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.6rem;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+/* Authentication.jsx */
+.auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.auth .content-image {
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+}
+
+.auth .content-form {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.auth .content-form .block-blur {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2.4rem);
+    z-index: 0;
+}
+
+.auth .content-form .block-form {
+    position: relative;
+    width: 80%;
+    padding: 1.6rem;
+    border: 2px solid white;
+    border-radius: 2rem;
+    box-shadow: black 0 0 2rem;
+    z-index: 1;
+    animation: fadeIn 4s;
+}
+
+.auth .content-form .block-form .content-mini-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    color: white;
+}
+
+.auth .content-form .block-form .content-mini-menu .fa-content-mini-menu {
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.auth .content-form .block-form .content-mini-menu .fa-content-mini-menu:hover {
+    scale: 1.2;
+}
+
+.auth .content-form .block-form .content-mini-menu h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.auth .content-form .block-form .content-form-data {
+    width: 100%;
+    height: 90%;
+}
+
+.auth .content-form .block-form .content-form-data form {
+    width: 100%;
+    justify-items: center;
+    padding: 1.6rem;
+}
+
+.auth .content-form .block-form .content-form-data form input {
+    width: 90%;
+    background: none;
+    padding-left: 0.4rem;
+    margin-right: 1rem;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.auth .content-form .block-form .content-form-data form input::placeholder {
+    color: white;
+    letter-spacing: 2px;
+}
+
+.auth .content-form .block-form .content-form-data form .input-username {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem;
+    color: white;
+    border: 2px solid white;
+    border-radius: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+.auth .content-form .block-form .content-form-data form .input-password {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem;
+    color: white;
+    border: 2px solid white;
+    border-radius: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+.auth .content-form .block-form .content-form-data form .input-email {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem;
+    color: white;
+    border: 2px solid white;
+    border-radius: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+.auth .content-form .block-form .content-form-data form .input-verify {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.6rem;
+    color: white;
+    border: 2px solid white;
+    border-radius: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+.auth .content-form .block-form .content-form-data form .input-verify p {
+    display: none;
+    position: absolute;
+    bottom: -1rem;
+    letter-spacing: 1px;
+    font-size: 0.6rem;
+}
+
+.auth .content-form .block-form .content-form-data form .forgot-password {
+    color: white;
+    margin-bottom: 0.6rem;
+}
+
+.auth .content-form .block-form .content-form-data form .forgot-password p {
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.auth .content-form .block-form .content-form-data form button {
+    position: relative;
+    margin-top: 1rem;
+    background: none;
+    color: white;
+    border: 2px solid white;
+    border-radius: 2rem;
+    padding: 0.4rem 1.6rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+.auth .content-form .block-form .content-form-data form button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.auth .content-form .block-form .content-form-data .content-line {
+    justify-items: center;
+    width: 100%;
+}
+
+.auth .content-form .block-form .content-form-data .content-line .line {
+    width: 40%;
+    height: 0.1rem;
+    background-color: white;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+}
+
+.auth .content-form .block-form .content-form-data .google-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+}
+
+.auth .content-form .block-form .content-form-data .google-login .fa-google {
+    padding-right: 0.8rem;
+}
+
+.auth .content-form .block-form .content-form-data .google-login button {
+    color: white;
+    background: none;
+    border: 2px solid white;
+    border-radius: 2rem;
+    padding: 0.6rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.auth .content-form .block-form .content-form-data .google-login button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.auth .content-form .block-forgot-pass {
+    position: relative;
+    width: 80%;
+    text-align: center;
+    padding: 1.6rem;
+    color: white;
+    border: 2px solid white;
+    border-radius: 2rem;
+    box-shadow: black 0 0 2rem;
+    z-index: 2;
+    animation: fadeIn 4s;
+}
+
+.auth .content-form .block-forgot-pass .content-form-data {
+    width: 100%;
+    height: 90%;
+}
+
+.auth .content-form .block-forgot-pass .content-mini-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    color: white;
+}
+
+.auth .content-form .block-forgot-pass .content-mini-menu .fa-content-mini-menu {
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.auth .content-form .block-forgot-pass .content-mini-menu .fa-content-mini-menu:hover {
+    scale: 1.2;
+}
+
+.auth .content-form .block-forgot-pass .content-mini-menu h1 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.auth .content-form .block-forgot-pass .content-form-data form {
+    width: 100%;
+    justify-items: center;
+    padding: 1.6rem;
+}
+
+.auth .content-form .block-forgot-pass .content-form-data form input {
+    width: 90%;
+    background: none;
+    padding-left: 0.4rem;
+    margin-right: 1rem;
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.auth .content-form .block-forgot-pass .content-form-data form input::placeholder {
+    color: white;
+    letter-spacing: 2px;
+}
+
+.auth .content-form .block-forgot-pass .content-form-data form .input-email {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem;
+    color: white;
+    border: 2px solid white;
+    border-radius: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+.auth .content-form .block-forgot-pass .content-form-data form .input-new-pass {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem;
+    color: white;
+    border: 2px solid white;
+    border-radius: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+.auth .content-form .block-forgot-pass .content-form-data form .input-verify {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.6rem;
+    color: white;
+    border: 2px solid white;
+    border-radius: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+.auth .content-form .block-forgot-pass .content-form-data form .input-verify p {
+    display: none;
+    position: absolute;
+    bottom: -1rem;
+    letter-spacing: 1px;
+    font-size: 0.6rem;
+}
+
+.auth .content-form .block-forgot-pass .content-form-data form button {
+    position: relative;
+    margin-top: 1rem;
+    background: none;
+    color: white;
+    border: 2px solid white;
+    border-radius: 2rem;
+    padding: 0.4rem 1.6rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+.auth .content-form .block-forgot-pass .content-form-data form button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Admin.jsx */
+.admin .date-time {
+    cursor: pointer;
+}
+
+.admin .date-time h3 {
+    font-weight: 300;
+}
+
+.admin .logo h2 {
+    position: absolute;
+    top: 0.4rem;
+    left: 1rem;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    font-weight: 300 !important;
+}
+
+.admin .logo h1 {
+    font-size: 1rem !important;
+}
+
+.admin .aboutus {
+    cursor: auto !important;
+}
+
+.admin .aboutus h2 {
+    position: absolute;
+    top: 0.4rem;
+    left: 1rem;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    font-weight: 300 !important;
+}
+
+.admin .aboutus h1 {
+    font-size: 1rem !important;
+}
+
+.admin .date-time h1 {
+    font-weight: bold !important;
+}
+
+.admin .date-time h2 {
+    position: absolute;
+    top: 0.4rem;
+    left: 1rem;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    font-weight: 300 !important;
+}
+
+.admin .chat-history {
+    position: relative;
+    justify-items: normal !important;
+    align-content: start !important;
+}
+
+.admin .chat-history .icon-full-selc {
+    position: absolute;
+    top: 0.6rem;
+    right: 1rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.admin .chat-history .content-prompt-template {
+    position: relative;
+    height: 100%;
+}
+
+.admin .chat-history .h1-prompt {
+    position: absolute;
+    top: 0.4rem;
+    left: 1rem;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    font-weight: 300 !important;
+}
+
+.admin .chat-history .empty {
+    height: 10%;
+}
+
+.admin .chat-history .name-template {
+    height: 90%;
+    padding: 1rem;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.admin .chat-history .name-template .new-name-sec {
+    text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    padding: 0.4rem;
+    border: 1px solid white;
+    border-radius: 2rem;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.admin .chat-history .name-template .new-name-sec:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.admin .chat-history .name-template .name-sec {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.6rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.admin .chat-history .name-template .name-sec h2 {
+    font-weight: 400;
+}
+
+.admin .chat-history .name-template .name-sec .fa-icon-delete {
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.admin .chat-history .name-template .name-sec:hover .fa-icon-delete {
+    opacity: 1;
+}
+
+.admin .chat-history .empty-section {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+    align-content: center;
+    backdrop-filter: blur(2em);
+    z-index: 20;
+}
+
+.admin .chat-history .empty-section .warn-new-sec {
+    font-size: 0.8rem;
+}
+
+.admin .chat-history .empty-section form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.admin .chat-history .empty-section form input {
+    width: 100%;
+    padding: 0 0.4rem;
+    background: none;
+    color: white;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+}
+
+.admin .chat-history .empty-section form input::placeholder {
+    color: white;
+}
+
+.admin .chat-history .empty-section form button {
+    padding: 0 0.8rem;
+    background: none;
+    color: white;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.admin .chat-history .name-templates {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.4rem;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(4rem);
+    z-index: 10;
+}
+
+.admin .chat-history .name-templates .select {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    padding: 1rem;
+}
+
+.admin .chat-history .name-templates .select button {
+    padding: 0 0.4rem;
+    color: white;
+    font-size: 0.8rem;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.admin .chat-history .name-templates .select button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.admin .chat-history .name-templates textarea {
+    width: 100%;
+    height: 80%;
+    padding: 0.8rem;
+    background: none;
+    color: white;
+    outline: none;
+    border: 1px solid white;
+}
+
+.admin .chat-history .name-templates form {
+    width: 100%;
+    height: 100%;
+}
+
+.admin .chat-history .name-templates .btn-update {
+    width: 100%;
+    padding: 0.4rem;
+    background: none;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.admin .chat-history .name-templates .btn-update:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.admin .chat-history .empty-template {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-items: center;
+    align-content: center;
+    backdrop-filter: blur(4rem);
+    z-index: 10;
+}
+
+.admin .chat-history .empty-template p {
+    font-size: 0.8rem;
+    text-align: center;
+    color: white;
+}
+
+
+.admin .chat-history .empty-template form {
+    width: 100%;
+    height: 90%;
+    padding: 0.8rem;
+}
+
+.admin .chat-history .empty-template form input {
+    width: 100%;
+    padding: 0.4rem;
+    background: none;
+    color: white;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+}
+
+.admin .chat-history .empty-template form input::placeholder {
+    color: white;
+}
+
+.admin .chat-history .empty-template form textarea {
+    width: 100%;
+    height: 80%;
+    padding: 0.8rem;
+    background: none;
+    color: white;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 2rem;
+    resize: none;
+}
+
+.admin .chat-history .empty-template form textarea::placeholder {
+    color: white;
+}
+
+.admin .chat-history .empty-template form button {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.8rem;
+    background: none;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.admin .chat-history .new-section-tem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2em);
+    z-index: 10;
+}
+
+.admin .chat-history .new-section-tem form {
+    justify-items: center;
+    align-content: center;
+    width: 100%;
+    height: 50%;
+}
+
+.admin .chat-history .new-section-tem form input {
+    width: 100%;
+    background: none;
+    color: white;
+    padding: 0.4rem;
+    border: 1px solid white;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+}
+
+.admin .chat-history .new-section-tem form input::placeholder {
+    color: white;
+}
+
+.admin .chat-history .new-section-tem form button {
+    padding: 0.4rem 0.8rem;
+    background: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.admin .chat-history .select-template-in {
+    position: absolute;
+    top: 0;
+    left: 0;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(20rem);
+    z-index: 20;
+}
+
+.admin .chat-history .select-template-in .text {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8%;
+}
+
+.admin .chat-history .select-template-in .text .line-h {
+    background-color: white;
+    width: 2px;
+    height: 60%;
+}
+
+.admin .chat-history .select-template-in .pl-select {
+    text-align: center;
+    width: 100%;
+}
+
+.admin .chat-history .select-template-in .pl-select .btn-m1-m2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.admin .chat-history .select-template-in .pl-select .btn-m1-m2 button {
+    width: 100%;
+    background: none;
+    margin: 0 0.2rem;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+.admin .chat-history .select-template-in .pl-select .btn-m1-m2 button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.admin .app-moblie .block-report {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 2rem;
+}
+
+.admin .app-moblie .block-template {
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 2rem;
+}
+
+.admin .setting-full-prompt {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(1rem);
+    z-index: 20;
+}
+
+.admin .report {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(1rem);
+    z-index: 10;
+}
+
+.admin .report .content-report {
+    color: white;
+    height: 80%;
+    box-shadow: black 0 0 2rem;
+    border: 1px solid white;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.admin .report .content-report .report-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.admin .report .content-report .report-title h1 {
+    padding-left: 2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.admin .report .content-report .report-title .icon-report {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.admin .report .content-report .report-title .icon-report .fa-report {
+    padding: 0.5rem 0.6rem;
+    background-color: rgba(255, 0, 0, 0.5);
+    border-radius: 50%;
+    transition: all 0.4s ease-in-out;
+}
+
+.admin .report .content-report .report-title .icon-report .fa-report:hover {
+    background-color: rgba(255, 0, 0, 0.9);
+}
+
+.admin .report .content-report .detail-report {
+    height: 90%;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.admin .report .content-report .non-report {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+.admin .report .content-report .non-report h1 {
+    font-weight: 300;
+}
+
+.admin .report .content-report .detail-report table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin .report .content-report .detail-report table,
+tr,
+th,
+td {
+    border: 1px solid white;
+}
+
+.admin .report .content-report .detail-report table,
+th {
+    text-align: start;
+    padding: 1rem;
+}
+
+.admin .report .content-report .detail-report table,
+td {
+    padding: 1rem;
+}
+
+.admin .report .content-report .detail-report button {
+    padding: 0.2rem 0.6rem;
+    background: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 2rem;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.admin .report .content-report .detail-report button:hover {
+    scale: 1.2;
+}
+
+
+.admin .report .content-report .details {
+    display: none;
+    padding: 1rem;
+    width: 100%;
+    height: 90%;
+}
+
+.admin .report .content-report .details .text-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin .report .content-report .details .text-btn button {
+    color: white;
+    background: none;
+    padding: 0.6rem;
+    border: 1px solid white;
+    border-radius: 2rem;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.admin .report .content-report .details .text-btn button:hover {
+    scale: 1.2;
+}
+
+.admin .report .content-report .details .text-btn button:nth-child(1) {
+    margin-right: 1rem;
+}
+
+.admin .report .content-report .details h1 {
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.admin .report .content-report .details .pre-text {
+    overflow: auto;
+}
+
+.admin .new-version {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(1rem);
+    z-index: 20;
+}
+
+.admin .new-version form {
+    width: 90%;
+    height: 90%;
+    border: 2px solid white;
+    color: white;
+    box-shadow: black 0 0 1rem;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.admin .new-version form .btn-save-cel {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 10%;
+}
+
+.admin .new-version form .btn-save-cel button {
+    background: none;
+    color: white;
+    border: 1px solid white;
+    margin-right: 1rem;
+    padding: 0.4rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+
+.admin .new-version form .btn-save-cel button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.admin .new-version form .input-version {
+    height: 6%;
+    padding: 0 1rem;
+}
+
+.admin .new-version form .input-version input {
+    background: none;
+    padding: 0.4rem;
+    color: white;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+}
+
+.admin .new-version form .input-version input::placeholder {
+    color: white;
+}
+
+.admin .new-version form .input-version-template {
+    display: flex;
+    align-items: start;
+    height: 84%;
+    padding: 1rem;
+}
+
+.admin .new-version form .input-version-template textarea {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    background: none;
+    outline: none;
+    color: white;
+    border: 1px solid white;
+    padding: 1rem;
+}
+
+.admin .new-version form .input-version-template textarea::placeholder {
+    color: white;
+}
