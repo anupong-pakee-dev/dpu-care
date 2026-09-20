@@ -20,6 +20,17 @@ import "./AuthNew.css"
 
 import IMAGE from "/images/ai_gen_metaAI.jfif"
 
+const Field = ({ icon, children, label, hint }) => (
+  <label className="dpu-field">
+    <span className="dpu-field-label">{label}</span>
+    <span className="dpu-field-box">
+      <FontAwesomeIcon icon={icon} className="dpu-field-ico" />
+      {children}
+    </span>
+    {hint ? <small className="dpu-field-hint">{hint}</small> : null}
+  </label>
+)
+
 function Authentication() {
   const [data, setData] = useState({})
   const [verify, setVerify] = useState({
@@ -217,17 +228,6 @@ function Authentication() {
   }
 
   /* -------------------------------- fragments ------------------------------- */
-
-  const Field = ({ icon, children, label, hint }) => (
-    <label className="dpu-field">
-      <span className="dpu-field-label">{label}</span>
-      <span className="dpu-field-box">
-        <FontAwesomeIcon icon={icon} className="dpu-field-ico" />
-        {children}
-      </span>
-      {hint ? <small className="dpu-field-hint">{hint}</small> : null}
-    </label>
-  )
 
   const EmailSend = (
     <button

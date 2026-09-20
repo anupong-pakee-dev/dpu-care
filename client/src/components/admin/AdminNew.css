@@ -810,14 +810,17 @@
 
 @media (max-width: 1023px) {
   .dpu-modal-panel,
-  .dpu-modal-sm,
-  .dpu-modal-xs {
+  .dpu-modal-sm {
     width: 100%;
     height: 100%;
     max-height: none;
     border-radius: 0;
     border: none;
     flex-direction: column;
+  }
+  .dpu-modal-xs {
+    width: calc(100% - 32px);
+    max-height: calc(100% - 32px);
   }
   .dpu-modal-nav {
     width: 100%;
@@ -840,6 +843,10 @@
 /* ------------------------------- a11y helpers ------------------------------ */
 
 .dpu-adm :focus-visible { outline: 2px solid var(--dpu-accent-soft); outline-offset: 2px; }
+.dpu-adm input:focus-visible,
+.dpu-adm input:focus,
+.dpu-adm textarea:focus-visible,
+.dpu-adm textarea:focus { outline: none; }
 .dpu-adm ::-webkit-scrollbar { width: 8px; height: 8px; }
 .dpu-adm ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.18); border-radius: 999px; }
 .dpu-adm ::-webkit-scrollbar-track { background: transparent; }

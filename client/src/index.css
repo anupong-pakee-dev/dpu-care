@@ -33,61 +33,74 @@ select:-webkit-autofill:focus {
 
 /* Toast.jsx */
 .toast {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-top: 1rem;
-  margin-right: 1rem;
-  max-width: 80%;
-  max-height: 20%;
+  position: fixed;
+  top: calc(80px + env(safe-area-inset-top));
+  right: 12px;
+  left: 12px;
   color: white;
-  border-radius: 1rem;
-  box-shadow: black 0 0 1rem;
+  font-size: 14px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   overflow: hidden;
-  z-index: 100;
+  z-index: 55;
+}
+
+@media (min-width: 481px) {
+  .toast {
+    left: auto;
+    width: 340px;
+  }
 }
 
 .toast .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.6rem;
-  background-color: rgba(0, 0, 0, 0.6);
+  gap: 10px;
+  padding: 12px 14px;
+  background-color: rgba(20, 6, 32, 0.92);
 }
 
 .toast .header .text-status {
   display: flex;
   align-items: center;
+  gap: 10px;
+  min-width: 0;
 }
 
 .toast .header .text-status .status {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 1rem;
-  width: 1.6rem;
-  height: 1.6rem;
+  flex: none;
+  width: 26px;
+  height: 26px;
+  font-size: 12px;
   border-radius: 50%;
 }
 
 .toast .header .text-status h1 {
-  letter-spacing: 1px;
-  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: normal;
 }
 
 .toast .header .fa-toast {
-  margin-left: 1.6rem;
+  flex: none;
+  margin-left: 0;
+  font-size: 14px;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .toast .header .fa-toast:hover {
-  scale: 1.2;
+  transform: scale(1.15);
 }
 
 .toast .loader {
   width: 100%;
-  height: 0.2rem;
+  height: 3px;
   background-color: white;
 }
 
@@ -124,400 +137,5 @@ select:-webkit-autofill:focus {
 
   50% {
     background-position: 100% 50%;
-  }
-}
-
-/* Moblie */
-@media screen and (min-width: 320px) {
-  * {
-    font-size: 10px;
-  }
-
-  /* App.jsx */
-  .app .content-app {
-    width: 90%;
-    height: 90%;
-    grid-template-columns: 70%;
-    grid-template-rows: 10% auto;
-  }
-
-  .app .content-app .date-time {
-    position: relative;
-    justify-items: center;
-    align-content: center;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 2rem;
-    overflow: hidden;
-    animation: fadeIn 2s;
-  }
-
-  .app .content-app .date-time h1:nth-child(1) {
-    font-weight: bold;
-  }
-
-  .app .content-app .date-time h1 {
-    padding: 0.2rem 0;
-    font-weight: 400;
-  }
-
-  .app .content-app .mini-menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-column: 2;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 2rem;
-    overflow: hidden;
-    animation: fadeIn 4s;
-  }
-
-  .app .content-app .mini-menu div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 60%;
-  }
-
-  .app .content-app .mini-menu h1 {
-    cursor: pointer;
-    transition: all 0.4s ease-in-out;
-  }
-
-  .app .content-app .mini-menu h1:hover {
-    scale: 1.2;
-  }
-
-  .app .content-app .logo {
-    position: relative;
-    display: none;
-    animation: fadeIn 4s;
-    overflow: hidden;
-  }
-
-  .app .content-app .logo h1 {
-    font-size: 0.8rem;
-    font-weight: 300;
-    letter-spacing: 2px;
-  }
-
-  .app .content-app .chatbot {
-    position: relative;
-    grid-column: 1 / 2 span;
-    grid-row: 2 / 9 span;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 2rem;
-    overflow: hidden;
-    animation: fadeIn 4s;
-  }
-
-  .app .content-app .chatbot .chat .show-message {
-    height: auto;
-  }
-
-  .app .content-app .aboutus {
-    display: none;
-    position: relative;
-    justify-items: center;
-    align-content: center;
-    grid-column: 2;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 2rem;
-    overflow: hidden;
-    animation: fadeIn 6s;
-  }
-
-  .app .content-app .aboutus h1 {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 300;
-  }
-
-  .app .content-app .chat-history {
-    display: none;
-    justify-items: center;
-    align-content: center;
-    animation: fadeIn 4s;
-    overflow: hidden;
-  }
-
-  .app .content-app .chat-history h1 {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 300;
-  }
-
-  .app .content-app .setting {
-    position: relative;
-    display: none;
-    overflow: hidden;
-    cursor: pointer;
-    animation: fadeIn 8s;
-  }
-
-  .app .content-app .setting h2 {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 300;
-  }
-
-  .app .content-app .exit {
-    position: relative;
-    display: none;
-    overflow: hidden;
-    cursor: pointer;
-    animation: fadeIn 10s;
-  }
-
-  .app .content-app .exit h2 {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 300;
-  }
-
-  .app .setting-full .content-setting-full .nav-menu-left {
-    width: 10%;
-  }
-
-  .app .setting-full .content-setting-full .content-menu-right {
-    width: 90%;
-  }
-
-  .app .setting-full .content-setting-full .content-menu-right .theme-setting-right .themes .block-theme {
-    width: 60%;
-    height: 20%;
-  }
-
-  .app .setting-full .content-setting-full .content-menu-right .language-setting-right button {
-    width: 60%;
-    height: 20%;
-  }
-
-  .app .setting-full .content-setting-full .content-menu-right .audio-setting-right input {
-    width: 60%;
-  }
-
-  /* Authentication.jsx */
-  .auth .content-image {
-    display: none;
-  }
-
-  .auth .content-form {
-    width: 100%;
-  }
-
-  .auth .content-form .block-form .content-form-data form .input-username {
-    width: 100%;
-  }
-
-  .auth .content-form .block-form .content-form-data form .input-password {
-    width: 100%;
-  }
-
-  .auth .content-form .block-form .content-form-data form .input-email {
-    width: 100%;
-  }
-
-  .auth .content-form .block-form .content-form-data form .input-verify {
-    width: 100%;
-  }
-
-  .auth .content-form .block-form .content-form-data form .forgot-password {
-    width: 100%;
-  }
-
-  .auth .content-form .block-forgot-pass .content-form-data form .input-email {
-    width: 100%;
-  }
-
-  .auth .content-form .block-forgot-pass .content-form-data form .input-new-pass {
-    width: 100%;
-  }
-
-  .auth .content-form .block-forgot-pass .content-form-data form .input-verify {
-    width: 100%;
-  }
-
-  /* Admin.jsx */
-  .admin .setting-full-prompt .content-setting-full-prompt .content-menu-right-prompt .text h1 {
-    max-width: 60%;
-    font-size: 0.6rem;
-  } 
-
-  .admin .setting-full-prompt .content-setting-full-prompt .content-menu-right-prompt .btn-save-cancel button {
-    font-size: 0.4rem;
-  }
-
-  .admin .report .content-report .report-title .icon-report {
-    width: 10%;
-  }
-
-  .admin .report .content-report {
-    width: 90%;
-  }
-}
-
-/* Tablet */
-@media screen and (min-width: 601px) {
-  * {
-    font-size: 16px;
-  }
-
-  .auth .content-image {
-    display: block;
-    width: 30%;
-  }
-}
-
-/* Windows */
-@media screen and (min-width: 1280px) {
-  * {
-    font-size: 18px;
-  }
-
-  /* App.jsx */
-  .app .content-app {
-    width: 90%;
-    height: 90%;
-    grid-template-columns: 15% 25% 50%;
-    grid-template-rows: 15% auto auto;
-  }
-
-  .app .content-app .date-time {
-    grid-column: 1;
-  }
-
-  .app .content-app .logo {
-    display: block;
-    justify-items: center;
-    align-content: center;
-    grid-column: 1;
-    grid-row: 2;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 2rem;
-  }
-
-  .app .content-app .chatbot {
-    grid-column: 3 / 3 span;
-    grid-row: 1 / 5 span;
-  }
-
-  .app .content-app .aboutus {
-    display: block;
-    grid-column: 1;
-    grid-row: 3;
-  }
-
-  .app .content-app .chat-history {
-    display: block;
-    grid-column: 2;
-    grid-row: 2 / 4 span;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 2rem;
-  }
-
-  .app .content-app .chatbot .chat .show-message {
-    height: 85%;
-  }
-
-  .app .content-app .setting {
-    display: block;
-    justify-items: center;
-    align-content: center;
-    grid-column: 1;
-    grid-row: 4;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 2rem;
-  }
-
-  .app .content-app .exit {
-    display: block;
-    justify-items: center;
-    align-content: center;
-    grid-column: 1;
-    grid-row: 5;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-radius: 2rem;
-  }
-  
-  .app .setting-full .content-setting-full .nav-menu-left {
-    width: 20%;
-  }
-
-  .app .setting-full .content-setting-full .content-menu-right {
-    width: 80%;
-  }
-
-  .app .setting-full .content-setting-full .content-menu-right .theme-setting-right .themes .block-theme {
-    width: 40%;
-    height: 40%;
-  }
-
-  .app .setting-full .content-setting-full .content-menu-right .language-setting-right button {
-    width: 40%;
-    height: 20%;
-  }
-
-  .app .setting-full .content-setting-full .content-menu-right .audio-setting-right input {
-    width: 40%;
-  }
-
-  /* Authentication.jsx */
-  .auth .content-image {
-    width: 40%;
-  }
-
-  .auth .content-form {
-    width: 60%;
-  }
-
-  .auth .content-form .block-form .content-form-data form .input-username {
-    width: 50%;
-  }
-
-  .auth .content-form .block-form .content-form-data form .input-password {
-    width: 50%;
-  }
-
-  .auth .content-form .block-form .content-form-data form .input-email {
-    width: 50%;
-  }
-
-  .auth .content-form .block-form .content-form-data form .input-verify {
-    width: 50%;
-  }
-
-  .auth .content-form .block-form .content-form-data form .forgot-password {
-    width: 50%;
-  }
-
-  .auth .content-form .block-forgot-pass .content-form-data form .input-email {
-    width: 50%;
-  }
-
-  .auth .content-form .block-forgot-pass .content-form-data form .input-new-pass {
-    width: 50%;
-  }
-
-  .auth .content-form .block-forgot-pass .content-form-data form .input-verify {
-    width: 50%;
-  }
-
-  /* Admin.jsx */
-  .admin .setting-full-prompt .content-setting-full-prompt .content-menu-right-prompt .text h1 {
-    max-width: 80%;
-    font-size: 1rem;
-  } 
-
-  .admin .setting-full-prompt .content-setting-full-prompt .content-menu-right-prompt .btn-save-cancel button {
-    font-size: 0.8rem;
-  }
-
-  .admin .report .content-report .report-title .icon-report {
-    width: 5%;
-  }
-
-  .admin .report .content-report {
-    width: 80%;
   }
 }

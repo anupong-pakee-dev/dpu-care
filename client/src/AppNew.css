@@ -811,6 +811,11 @@
   outline-offset: 2px;
 }
 
+.dpu-app input:focus-visible,
+.dpu-app input:focus {
+  outline: none;
+}
+
 .dpu-app ::-webkit-scrollbar { width: 8px; height: 8px; }
 .dpu-app ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.18); border-radius: 999px; }
 .dpu-app ::-webkit-scrollbar-track { background: transparent; }

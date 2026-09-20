@@ -306,6 +306,11 @@
   outline-offset: 2px;
 }
 
+.dpu-auth input:focus-visible,
+.dpu-auth input:focus {
+  outline: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .dpu-auth *,
   .dpu-auth *::before,
