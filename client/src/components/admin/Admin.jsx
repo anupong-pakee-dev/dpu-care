@@ -25,7 +25,7 @@ import THEMES from "../../Themes.json"
 import THEMESDATA from "../../ThemesData.json"
 import Toast from '../Toast';
 import { useErrorToast } from "../../hooks/useErrorToast"
-import { formatBold, formatNumber } from "../../utils/format"
+import { formatBold, formatNumber, formatDateTime, getReportStatusMeta } from "../../utils/format"
 
 import "./AdminNew.css"
 
@@ -51,6 +51,7 @@ const Admin = () => {
   const [currentCountAllUser, setCurrntCountAllUser] = useState({})
   const [report, setReport] = useState([])
   const [viewOneReport, setViewOneReport] = useState(null)
+  const [confirmDeleteReport, setConfirmDeleteReport] = useState(false)
   const [themeData] = useState(THEMESDATA)
   const [sectionTemplatem, setSectionTemplate] = useState([])
   const [versionTemplate, setVersionTemplate] = useState([])
@@ -203,7 +204,7 @@ const Admin = () => {
       if (e.key !== "Escape") return
       setDrawerOpen(false); setSettingFull(false)
       setNewVersion(false); setStateNewSec(false)
-      setStateSelc(false); setViewOneReport(null)
+      setStateSelc(false); setViewOneReport(null); setConfirmDeleteReport(false)
     }
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
@@ -365,6 +366,7 @@ const Admin = () => {
   }
 
   const view_one_report = idx => {
+    setConfirmDeleteReport(false)
     setViewOneReport({
       _id: report[idx]._id,
       index: idx,
@@ -375,6 +377,11 @@ const Admin = () => {
       description: report[idx].description
     })
     return;
+  }
+
+  const close_report_modal = () => {
+    setViewOneReport(null)
+    setConfirmDeleteReport(false)
   }
 
   const get_count_user = id => {
@@ -585,31 +592,40 @@ const Admin = () => {
         <span className="dpu-adm-muted">{report.length} {T.count}</span>
       </header>
       {report.length == 0 ? (
-        <p className="dpu-adm-empty">{T.noreport}</p>
+        <div className="dpu-adm-empty">
+          <span className="dpu-adm-empty-icon"><FontAwesomeIcon icon={faFlag} /></span>
+          <p>{T.noreport}</p>
+          <span className="dpu-adm-empty-sub">{T.noreportsub}</span>
+        </div>
       ) : (
         <div className="dpu-adm-table-wrap">
-          <table className="dpu-adm-table">
+          <table className="dpu-adm-table dpu-adm-table-clickable">
             <thead>
               <tr>
                 <th className="dpu-adm-num">#</th>
                 <th>{T.title}</th>
                 <th>{T.status}</th>
+                <th>{T.time}</th>
                 <th className="dpu-adm-right">{T.detail}</th>
               </tr>
             </thead>
             <tbody>
-              {report.map((item, idx) => (
-                <tr key={idx}>
-                  <td className="dpu-adm-num">{idx}</td>
-                  <td className="dpu-adm-cut">{item.title}</td>
-                  <td><span className="dpu-adm-chip">{item.status}</span></td>
-                  <td className="dpu-adm-right">
-                    <button className="dpu-btn dpu-btn-ghost dpu-btn-sm" onClick={() => view_one_report(idx)}>
-                      {isTH ? "ดู" : "View"}
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {report.map((item, idx) => {
+                const statusMeta = getReportStatusMeta(item.status, isTH)
+                return (
+                  <tr key={idx} onClick={() => view_one_report(idx)}>
+                    <td className="dpu-adm-num">{idx}</td>
+                    <td className="dpu-adm-cut">{item.title || (isTH ? "(ไม่มีข้อความ)" : "(no message)")}</td>
+                    <td><span className={`dpu-adm-chip is-${statusMeta.tone}`}>{statusMeta.label}</span></td>
+                    <td className="dpu-adm-muted">{formatDateTime(item.timestamp, isTH)}</td>
+                    <td className="dpu-adm-right">
+                      <button className="dpu-btn dpu-btn-ghost dpu-btn-sm" onClick={e => { e.stopPropagation(); view_one_report(idx); }}>
+                        {isTH ? "ดู" : "View"}
+                      </button>
+                    </td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         </div>
@@ -628,7 +644,11 @@ const Admin = () => {
         </header>
         <div className="dpu-adm-list">
           {sectionTemplatem.length == 0 ? (
-            <p className="dpu-adm-empty">{isTH ? "ยังไม่มี session — กด “ใหม่” เพื่อสร้าง" : "No sessions yet — press “New” to create one."}</p>
+            <div className="dpu-adm-empty">
+              <span className="dpu-adm-empty-icon"><FontAwesomeIcon icon={faPlus} /></span>
+              <p>{isTH ? "ยังไม่มี session" : "No sessions yet"}</p>
+              <span className="dpu-adm-empty-sub">{isTH ? "กด “ใหม่” เพื่อสร้าง session แรกของคุณ" : "Press “New” to create your first one."}</span>
+            </div>
           ) : sectionTemplatem.map((item, idx) => (
             <div
               key={idx}
@@ -662,7 +682,10 @@ const Admin = () => {
 
         {versionTemplate.length == 0 ? (
           <form className="dpu-adm-form" onSubmit={create_history_template}>
-            <p className="dpu-adm-empty">{isTH ? "ยังไม่มี template ใน session นี้" : "No template in this session yet."}</p>
+            <div className="dpu-adm-empty is-compact">
+              <span className="dpu-adm-empty-icon"><FontAwesomeIcon icon={faPenToSquare} /></span>
+              <p>{isTH ? "ยังไม่มี template ใน session นี้" : "No template in this session yet"}</p>
+            </div>
             <label className="dpu-field">
               <span className="dpu-field-label">{isTH ? "ชื่อเวอร์ชัน" : "Version name"}</span>
               <span className="dpu-field-box">
@@ -841,7 +864,7 @@ const Admin = () => {
               </>
             ) : null}
 
-            {page == "reports" ? ReportTable : null}
+            {page == "reports" ? <div className="dpu-adm-reports-page">{ReportTable}</div> : null}
             {page == "template" ? TemplatePanel : null}
             {page == "chat" ? ChatPanel : null}
           </div>
@@ -858,28 +881,44 @@ const Admin = () => {
 
       {/* report detail */}
       <div className={`dpu-modal${viewOneReport ? " is-open" : ""}`}>
-        <div className="dpu-modal-scrim" onClick={() => setViewOneReport(null)}></div>
+        <div className="dpu-modal-scrim" onClick={close_report_modal}></div>
         <div className="dpu-modal-panel dpu-modal-sm" style={FONT}>
           <header className="dpu-modal-head">
             <div className="dpu-adm-panel-title">
-              <button className="dpu-iconbtn" onClick={() => setViewOneReport(null)} aria-label={T.cancel}>
+              <button className="dpu-iconbtn" onClick={close_report_modal} aria-label={T.cancel}>
                 <FontAwesomeIcon icon={faArrowLeft} />
               </button>
               <h3>{T.report} #{viewOneReport?.index}</h3>
             </div>
-            <button className="dpu-btn dpu-btn-primary dpu-btn-sm" onClick={() => delete_report(viewOneReport?._id)}>
-              <FontAwesomeIcon icon={faCheck} />{isTH ? "แก้ไขแล้ว" : "Mark fixed"}
-            </button>
+            {confirmDeleteReport ? null : (
+              <button className="dpu-btn dpu-btn-danger dpu-btn-sm" onClick={() => setConfirmDeleteReport(true)}>
+                <FontAwesomeIcon icon={faTrash} />{T.deletereport}
+              </button>
+            )}
           </header>
           <div className="dpu-modal-scroll">
             <div className="dpu-adm-kv dpu-adm-kv-col">
-              <div><span>{T.title}</span><strong>{viewOneReport?.title}</strong></div>
-              <div><span>{T.status}</span><strong>{viewOneReport?.status}</strong></div>
+              <div><span>{T.title}</span><strong>{viewOneReport?.title || (isTH ? "(ไม่มีข้อความ)" : "(no message)")}</strong></div>
+              <div>
+                <span>{T.status}</span>
+                <strong><span className={`dpu-adm-chip is-${getReportStatusMeta(viewOneReport?.status, isTH).tone}`}>
+                  {getReportStatusMeta(viewOneReport?.status, isTH).label}
+                </span></strong>
+              </div>
               <div><span>User ID</span><strong>{viewOneReport?.user_id}</strong></div>
-              <div><span>Timestamp</span><strong>{viewOneReport?.timestamp}</strong></div>
+              <div><span>{T.time}</span><strong>{formatDateTime(viewOneReport?.timestamp, isTH)}</strong></div>
             </div>
             <pre className="dpu-adm-code">{viewOneReport?.description}</pre>
           </div>
+          {confirmDeleteReport ? (
+            <footer className="dpu-modal-foot dpu-modal-foot-confirm">
+              <span className="dpu-adm-muted">{T.confirmdeletereport}</span>
+              <button className="dpu-btn dpu-btn-ghost" onClick={() => setConfirmDeleteReport(false)}>{T.cancel}</button>
+              <button className="dpu-btn dpu-btn-danger" onClick={() => delete_report(viewOneReport?._id)}>
+                <FontAwesomeIcon icon={faTrash} />{T.confirm}
+              </button>
+            </footer>
+          ) : null}
         </div>
       </div>
 

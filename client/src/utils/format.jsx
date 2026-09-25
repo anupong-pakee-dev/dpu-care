@@ -41,3 +41,31 @@ export const formatNumber = num => {
     }
     return num.toString();
 }
+
+export const formatDateTime = (value, isTH) => {
+    const date = new Date(value);
+    if (isNaN(date.getTime())) return value || "-";
+
+    return new Intl.DateTimeFormat(isTH ? "th-TH" : "en-US", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+    }).format(date);
+}
+
+export const getReportStatusMeta = (status, isTH) => {
+    const code = Number(status);
+
+    if (!status || isNaN(code)) {
+        return { label: isTH ? "ไม่ทราบสถานะ" : "Unknown", tone: "neutral" };
+    }
+    if (code >= 500) {
+        return { label: `${isTH ? "เซิร์ฟเวอร์ผิดพลาด" : "Server error"} (${code})`, tone: "danger" };
+    }
+    if (code >= 400) {
+        return { label: `${isTH ? "คำขอผิดพลาด" : "Request error"} (${code})`, tone: "warn" };
+    }
+    return { label: String(code), tone: "neutral" };
+}
